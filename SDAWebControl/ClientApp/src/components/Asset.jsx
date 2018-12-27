@@ -33,10 +33,19 @@ export default class Asset extends Component {
                 </CardMedia>
                 <CardTitle title="Card title" subtitle="Card subtitle" />
                 <CardText>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                    Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                    Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                    
+                        vec2 uv = iZoom * gl_FragCoord.xy / RENDERSIZE.xy; 
+                    uv.x -= 0.0;
+                    uv.y -= 0.0;
+                
+                    uv.x *= RENDERSIZE.x/ RENDERSIZE.y;	
+                    vec4 res = imageFunction(uv);
+                    vec4 color = imageFunction(uv);
+                    color = (color+1.0)*0.5;	
+                    color.w=1.0;
+                
+                    gl_FragColor = color;		
+              
                     <div style={styles.wrapper}>
                         <Chip
                             backgroundColor={purple200}
