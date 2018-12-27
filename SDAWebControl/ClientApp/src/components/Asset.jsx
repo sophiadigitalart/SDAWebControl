@@ -1,6 +1,20 @@
 ﻿import React, { Component } from 'react';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import Avatar from 'material-ui/Avatar';
+import Chip from 'material-ui/Chip';
+import RaisedButton from 'material-ui/RaisedButton';
+import { purple200, purple900 } from 'material-ui/styles/colors';
+
+const styles = {
+    chip: { margin: 4 },
+    wrapper: {
+        display: 'flex',
+        flexWrap: 'wrap'
+    },
+    button: {
+        margin: 12
+    }
+};
 
 export default class Asset extends Component {
 
@@ -23,10 +37,21 @@ export default class Asset extends Component {
                     Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
                     Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
                     Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-    </CardText>
+                    <div style={styles.wrapper}>
+                        <Chip
+                            backgroundColor={purple200}
+                            style={styles.chip}
+                        >
+                            <Avatar size={32} color={purple200} backgroundColor={purple900}>
+                                GW
+                            </Avatar>
+                            Glass Walls
+                        </Chip>
+                    </div>
+                </CardText>
                 <CardActions>
-                    <FlatButton label="Action1" />
-                    <FlatButton label="Action2" />
+                    <RaisedButton label="Action1" />
+                    <RaisedButton label="Action2" />
                 </CardActions>
             </Card>
         );
