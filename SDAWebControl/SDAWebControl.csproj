@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\public\js\websocket-lib\" />
+    <Folder Include="ClientApp\public\images\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
