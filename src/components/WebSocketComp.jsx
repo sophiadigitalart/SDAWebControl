@@ -10,8 +10,8 @@ export default class WebSocketComp extends Component {
     componentDidMount() {
         // this is an "echo" websocket service for testing pusposes
         //this.connection = new WebSocket('wss://echo.websocket.org');
-        this.connection = new WebSocket('wss://127.0.0.1');
-        //this.connection = new WebSocket('wss://test.northeurope.cloudapp.azure.com/');
+        this.connection = new WebSocket('ws://localhost:8088');
+        //this.connection = new WebSocket('wss://.northeurope.cloudapp.azure.com/');
         // listen to onmessage event
         this.connection.onmessage = evt => {
             // add the new message to state

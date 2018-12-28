@@ -1,23 +1,22 @@
 {
-  "name": "SDAWebControl",
+  "name": "sdawebcontroller",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "^3.3.7",
     "material-ui": "^0.20.2",
     "react": "^16.7.0",
-    "react-bootstrap": "^0.31.5",
     "react-dom": "^16.7.0",
-    "react-router-bootstrap": "^0.24.4",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "^2.1.2",
-    "rimraf": "^2.6.2"
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.2"
   },
   "scripts": {
-    "start": "rimraf ./build && react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",
