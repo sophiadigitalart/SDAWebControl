@@ -1,12 +1,15 @@
 ﻿// from https://medium.com/practo-engineering/websockets-in-react-the-component-way-368730334eef
 import React, { Component } from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export default class WebSocketComp extends Component {
     constructor(props) {
         super(props);
         this.state = { messages: [] };
     }
-    
+    wsSend(asset) {
+        this.connection.send(asset.text);
+    }
     componentDidMount() {
         // this is an "echo" websocket service for testing pusposes
         //this.connection = new WebSocket('wss://echo.websocket.org');
@@ -24,12 +27,16 @@ export default class WebSocketComp extends Component {
         // the service sends it right back
         setInterval(_ => {
             this.connection.send(Math.random());
-        }, 2000);
+        }, 20000);
     }
     render() {
+        
         // render the messages from state:
         return (
-            <ul>{this.state.messages.slice(-5).map((msg, idx) => <li key={'msg-' + idx}>{msg}</li>)}</ul>
+            <div>
+                <RaisedButton label="Send" onClick={this.wsSend.bind(this,this.props.asset)} />
+                <ul>{this.state.messages.slice(-5).map((msg, idx) => <li key={'msg-' + idx}>{msg}</li>)}</ul>
+            </div>
         );
     }
    

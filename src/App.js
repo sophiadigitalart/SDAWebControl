@@ -59,6 +59,7 @@ export default class App extends Component {
       currentAsset: asset
     })
   }
+ 
   render() {
       return (
           <MuiThemeProvider>
@@ -79,7 +80,7 @@ export default class App extends Component {
                       </div>
                   </div>
                   <RaisedButton label="yeah" />
-                  <WebSocketComp  />
+                  <WebSocketComp asset={this.state.currentAsset} />
               </div>
           </MuiThemeProvider>
                   
