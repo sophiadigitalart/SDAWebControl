@@ -6,6 +6,7 @@ import AppBar from 'material-ui/AppBar';
 import { List } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 
+import Welcome from './components/Welcome';
 import Asset from './components/Asset';
 import AssetList from './components/AssetList';
 import WebSocketComp from './components/WebSocketComp';
@@ -27,6 +28,7 @@ export default class App extends Component {
   }
   componentWillMount() {
       this.setState({
+        user: "Bruce",
           assets: [{
               _id: 1,
               name: "GlassWalls",
@@ -82,6 +84,7 @@ export default class App extends Component {
                       iconClassNameRight="muidocs-icon-navigation-expand-more"
                       showMenuIconButton={false}
                   />
+                  <Welcome user={this.state.user} />
                   <div className="row">
                       <div className="col s12 m7"><Asset asset={this.state.currentAsset} /></div>
                       <div className="col s12 m5">
