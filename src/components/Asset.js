@@ -29,7 +29,7 @@ export default class Asset extends Component {
                 </CardMedia>
                 
                 <CardText>
-                    {asset.text}
+                    {asset.description}
                         		             
                     <div style={styles.wrapper}>
                         <Chip
@@ -45,7 +45,6 @@ export default class Asset extends Component {
                 </CardText>
                 <CardActions>
                     <RaisedButton label="Action1" />
-                    <RaisedButton label="Action2" />
                 </CardActions>
             </Card>
         );

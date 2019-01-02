@@ -47,7 +47,7 @@ export default class WebSocketComp extends Component {
         return (
             <div>
                 <RaisedButton label="Send" onClick={this.wsSend.bind(this,this.props.asset)} />
-                <CodeMirror value={this.props.asset.text} onChange={this.updateCode} options={options} />
+                <CodeMirror value={this.props.asset.description} onChange={this.updateCode} options={options} />
                 <ul>{this.state.messages.slice(-5).map((msg, idx) => <li key={'msg-' + idx}>{msg}</li>)}</ul>
             </div>
         );

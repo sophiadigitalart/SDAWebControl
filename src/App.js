@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-// not needed import injectTapEventPlugin from 'react-tap-event-plugin'; injectTapEventPlugin();
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
 import { List } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
@@ -13,8 +11,8 @@ import WebSocketComp from './components/WebSocketComp';
 
 const defaultAsset = {
   _id: 0,
-  name: "def",
-  text: "def"
+  name: "default",
+  description: "void main(void) \{vec2 uv = gl_FragCoord.xy / iResolution.xy;fragColor = vec4(1.,1.,0.,1.);\}"
 }
 export default class App extends Component {
   displayName = App.name
@@ -29,15 +27,15 @@ export default class App extends Component {
   componentWillMount() {
       this.setState({
         user: "Bruce",
-          assets: [{
+        assets: [{
               _id: 1,
               name: "GlassWalls",
-              text: "vec2 uv = iZoom * gl_FragCoord.xy / RENDERSIZE.xy;"
+              description: "vec2 uv = iZoom * gl_FragCoord.xy / RENDERSIZE.xy;"
           },
           {
               _id: 2,
               name: "AcidAtTheDisco",
-              text: "// https://www.shadertoy.com/view/4sfXRB \
+              description: "// https://www.shadertoy.com/view/4sfXRB \
               void main(void)\
               {\
                 vec2 uv = iZoom * gl_FragCoord.xy / iResolution.xy;\
@@ -54,7 +52,7 @@ export default class App extends Component {
           {
               _id: 3,
               name: "330",
-              text: "vec2 uv = gl_FragCoord.xy / RENDERSIZE.xy;"
+              description: "vec2 uv = gl_FragCoord.xy / RENDERSIZE.xy;"
           }
           ]
       });
@@ -95,7 +93,6 @@ export default class App extends Component {
                           <Divider />
                       </div>
                   </div>
-                  <RaisedButton label="yeah" />
                   <WebSocketComp asset={this.state.currentAsset} />
               </div>
           </MuiThemeProvider>
