@@ -3,8 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import { List } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
-import CodeMirror from 'react-codemirror';
-import 'codemirror/lib/codemirror.css';
+
 
 import Welcome from './components/Welcome';
 import Asset from './components/Asset';
@@ -79,7 +78,7 @@ export default class App extends Component {
     //     this.connection.send(Math.random());
     // }, 20000);
 }
-  renderAssets() {
+  renderList() {
       return this.state.assets.map((asset) => (
           <AssetList key={asset._id} index={asset._id} asset={asset} updateCurrentAsset={this.updateCurrentAsset} />
       ));
@@ -91,42 +90,37 @@ export default class App extends Component {
       currentAsset: asset,
       code:asset.description
     })
-    this.refs.editor.value = this.state.code;
+    // this.refs.editor.value = this.state.code;
     // this.refs.editor.onChange() ;
  }
   
 updateCode(newCode) {
-    console.log("updateCode:" + newCode);
+    console.log("updateCode APP:" + newCode);
     this.setState({
         code: newCode,
     });
-    //this.props.onChange(newCode, this.props.index)
+
     this.connection.send("{\"event\":\"frag\",\"message\":\"" + this.state.code + "\"}");
 }
 
   render() {
-    var options = {
-        lineNumbers: true,
-    };
       return (
           <MuiThemeProvider>
               <div className="container">
                   <Welcome user={this.state.user} />
                   <div className="row">
-                      <div className="col s12 m7"><Asset asset={this.state.currentAsset} /></div>
+                      <div className="col s12 m7"><Asset asset={this.state.currentAsset} onChange={this.updateCode}/></div>
                       <div className="col s12 m5">
                           <Divider />
                           <List>
-                              {this.renderAssets()}
+                              {this.renderList()}
                           </List>
                           <Divider />
                       </div>
                   </div>
-                  <CodeMirror ref="editor" value={this.state.code} onChange={this.updateCode} options={options} />
                   <WebSocketComp asset={this.state.currentAsset} onChange={this.update} />
               </div>
-          </MuiThemeProvider>
-                  
+          </MuiThemeProvider>               
       );
   }
 }
