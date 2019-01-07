@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import { List } from 'material-ui/List';
-import Divider from 'material-ui/Divider';
+// import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+// import AppBar from 'material-ui/AppBar';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
 
 
 import Welcome from './components/Welcome';
@@ -105,7 +105,6 @@ updateCode(newCode) {
 
   render() {
       return (
-          <MuiThemeProvider>
               <div className="container">
                   <Welcome user={this.state.user} />
                   <div className="row">
@@ -120,7 +119,7 @@ updateCode(newCode) {
                   </div>
                   <WebSocketComp asset={this.state.currentAsset} onChange={this.update} />
               </div>
-          </MuiThemeProvider>               
+                   
       );
   }
 }

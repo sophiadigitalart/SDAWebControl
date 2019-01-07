@@ -11,7 +11,7 @@ export default class Welcome extends Component {
                        <span> Welcome {user}</span>
                     )}
                     {!user && (
-                        <a>log in</a>
+                        <p>log in</p>
                     )}
                 
            </div>

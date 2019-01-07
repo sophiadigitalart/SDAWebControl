@@ -1,13 +1,14 @@
 ﻿import React, { Component } from 'react';
-import { Card, CardActions, CardMedia, CardTitle, CardText } from 'material-ui/Card';
-import Avatar from 'material-ui/Avatar';
-import Chip from 'material-ui/Chip';
-import RaisedButton from 'material-ui/RaisedButton';
-import { purple200, purple900 } from 'material-ui/styles/colors';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import { purple200 } from '@material-ui/core/colors';
 import CodeMirror from 'react-codemirror';
 import 'codemirror/lib/codemirror.css';
-import { FaBeer } from 'react-icons/fa'
-import { FaSave } from 'react-icons/fa'
+import { FaSave, FaPen } from 'react-icons/fa'
 
 const styles = {
     chip: { margin: 4 },
@@ -93,43 +94,37 @@ export default class Asset extends Component {
     }
 
     renderDisplay() {
-        
         const asset = this.props.asset;
         return (
             <Card>
                 <CardMedia
-                    overlay={<CardTitle title={asset.name} subtitle={asset._id} />}
-                >
-                    <img src="images/GlassWalls.gif" alt="GlassWalls" />
-                </CardMedia>
-                
-                <CardText>
+                    image="images/GlassWalls.gif"
+                    title={asset.name}
+                />
+                <CardContent>
                     {/*asset.description*/}
     		        <p>{this.props.children}</p>
 				<span>
-					<button onClick={this.edit} id="edit"><FaBeer /></button>
-					
+					<button onClick={this.edit} id="edit"><FaPen /></button>					
 				</span>     
                     <div style={styles.wrapper}>
-                        <Chip
-                            backgroundColor={purple200}
-                            style={styles.chip}
-                        >
-                            <Avatar size={32} color={purple200} backgroundColor={purple900}>
-                            {asset._id}
-                            </Avatar>
-                            {asset.name}
-                        </Chip>
+                        <Avatar size={32} color={purple200} >
+                        {asset._id}
+                        </Avatar>
+                        {asset.name}
                     </div>
-                </CardText>
+                </CardContent>
                 <CardActions>
-                    <RaisedButton label="Action1" />
+                    <Button onClick={this.edit} variant="contained" color="primary" >
+						<FaPen />
+      				</Button>
                 </CardActions>
-                
             </Card>
         );
     }
     render() {
-		return this.state.editing ? this.renderForm() : this.renderDisplay()
+        //return this.renderForm();		
+        return this.state.editing ? this.renderForm() : this.renderDisplay()		
+        
 	}
 }

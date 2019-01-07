@@ -12,16 +12,16 @@ import * as serviceWorker from './serviceWorker';
 //const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 
 ReactDOM.render((
-<Router basename={"/"}>
-    <Switch>
-        <Route exact path="/" component={App} />
-        <Route path="/controls" component={Controls} />
-        <Route component={Lost} />
-    </Switch>
-   
-</Router>
-), document.getElementById('root'));
-
+    <Router basename={"/"}>
+        <Switch>
+            <Route exact path="/" component={App} />
+            <Route path="/controls" component={Controls} />
+            <Route component={Lost} />
+        </Switch>
+       
+    </Router>
+    ), document.getElementById('root'));
+    
 /*
 ReactDOM.render(<BrowserRouter basename={"/"}>
     <App />

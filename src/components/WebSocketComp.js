@@ -1,6 +1,6 @@
 ﻿// from https://medium.com/practo-engineering/websockets-in-react-the-component-way-368730334eef
 import React, { Component } from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from '@material-ui/core/Button';
 
 export default class WebSocketComp extends Component {
     constructor(props) {
@@ -38,7 +38,9 @@ export default class WebSocketComp extends Component {
         
         return (
             <div>
-                <RaisedButton label="Send" onClick={this.wsSend.bind(this,this.props.asset)} />
+                <Button onClick={this.wsSend.bind(this,this.props.asset)} >
+						Send
+      				</Button>
                 <ul>{this.state.messages.slice(-5).map((msg, idx) => <li key={'msg-' + idx}>{msg}</li>)}</ul>
             </div>
         );
